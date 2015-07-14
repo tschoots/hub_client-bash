@@ -22,4 +22,4 @@ if [ -f /etc/debian_version ]; then
    jsonString+="]}"
 fi
 
-echo $jsonString
+echo $jsonString > /tmp/$1_$2.json
