@@ -39,24 +39,24 @@ echo "operating system : $os, version : $version, package manager: $package_mana
 echo "operating system : $os, version : $version, package manager: $package_manager" >> $logfile
 
 
-jsonString=""
+jsonString="{\"bds_hub_project\":\"$1\",\"bds_hub_project_release\":\"$2\",\"ossComponentsToMatch\":["
 if [ $package_manager = "dpkg" ]; then
-   jsonString+="{\"bds_hub_project\":\"$1\",\"bds_hub_project_release\":\"$2\",\"ossComponentsToMatch\":["
    #jsonString+=$(dpkg -l | grep "ii" |  sed 's/ii/{"name":"/' |    awk  '{   print $1 $2 "\",\"version\":\"" $3 "\"}," ;}')
    jsonString+=$(dpkg -l | grep "ii" |  sed 's/\(^ii\s*\S*\):\S*\(\s.*\)/\1\2/' | sed 's/ii/{"name":"/' |    awk  '{   print $1 $2 "\",\"version\":\"" $3 "\"}," ;}')
-   # take the last trailing , out
-   jsonString="${jsonString%?}"
-   jsonString+="]}"
 elif [ $package_manager = "rpm" ]; then
    echo "redhat or centos"
    echo "fedora"
+   jsonString+=$(rpm -qa --queryformat "\{\"name\":\"%{NAME}\",\"version\":\"%{VERSION}\"\},")
 else
    echo "operating system not recognized"
    echo "operating system not recognized" >> $logfile
-fi
-
-if [ -z "$jsonString"="" ]; then
    echo "nothing generated"
+   echo "nothing generated" >> $logfile
    exit
 fi
+
+#remove trailing , and add the ending brackets
+jsonString="${jsonString%?}"
+jsonString+="]}"
+
 echo $jsonString > /tmp/$1_$2.json
