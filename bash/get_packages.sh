@@ -14,7 +14,9 @@ if [ "$#" -ne 2  ]; then
    exit
 fi
 
-logfile="/tmp/$1_$2.log"
+# take out the / and replace for - in the json file name
+a=$(echo "$1_$2" | sed 's/\//-/g')
+logfile="/tmp/$a.log"
 
 date >> $logfile
 
@@ -59,4 +61,4 @@ fi
 jsonString="${jsonString%?}"
 jsonString+="]}"
 
-echo $jsonString > /tmp/$1_$2.json
+echo $jsonString > /tmp/$a.json

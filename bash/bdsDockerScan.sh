@@ -23,6 +23,7 @@ fi
 #initialize the shell so docker commands can be performed.
 eval $(boot2docker shellinit)
 
-
-output=$(docker run --privileged --rm -ti -v `pwd`:/tmp $1:$2 /tmp/get_packages.sh $1 $2  > /tmp/$1_$2.json)
+# take out the / and replace for - in the json file name
+a=$(echo "$1_$2" | sed 's/\//-/g')
+output=$(docker run --privileged --rm -ti -v `pwd`:/tmp $1:$2 /tmp/get_packages.sh $1 $2  > /tmp/$a.json)
 echo $output
