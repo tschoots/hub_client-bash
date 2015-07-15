@@ -27,3 +27,10 @@ eval $(boot2docker shellinit)
 a=$(echo "$1_$2" | sed 's/\//-/g')
 output=$(docker run --privileged --rm -ti -v `pwd`:/tmp $1:$2 /tmp/get_packages.sh $1 $2  > /tmp/$a.json)
 echo $output
+
+#now upload the json file
+# To do : parameterize the server , port , user , password
+java -jar postJSON.jar http://eng-hub-docker-01.blackducksoftware.com 80 docker docker ./$a.json
+
+
+# To do : cleanup image and json file
