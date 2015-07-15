@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="ssh://git@stash.blackducksoftware.com:7999/hub/rest-backend.git"/>
+		<item value="ssh://tschoots@stash.blackducksoftware.com:7999/hub/rest-backend.git"/>
+	</list>
+</section>

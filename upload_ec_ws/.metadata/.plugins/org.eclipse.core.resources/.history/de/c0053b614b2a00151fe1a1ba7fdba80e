@@ -1,0 +1,10 @@
+package com.maiastra.blackduck.docker_upload;
+
+public class RESTClient {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
