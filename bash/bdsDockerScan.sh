@@ -33,4 +33,22 @@ echo $output
 java -jar postJSON.jar http://eng-hub-docker-01.blackducksoftware.com 80 docker docker ./$a.json
 
 
+#open the browser to view the report
+urlFile=$(./$a.url)
+#if [ -f ./$a.url ];then
+if [ -f $urlFile ];then
+  url=$(cat ./$a.url)
+  if [ -f /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome ];then
+     open -a "Google Chrome" $url 
+  elif [ -f /Applications/Firefox.app/Contents/MacOS/firefox ];then
+     open -a Firefox $url
+  elif [ -f /Applications/Safari.app/Contents/MacOS/Safari ];then
+     open -a safari $url 
+  else
+     echo "no browser found"
+  fi
+else
+  echo "file : " $a ".url not found"
+fi
+# open -a safari $url 
 # To do : cleanup image and json file

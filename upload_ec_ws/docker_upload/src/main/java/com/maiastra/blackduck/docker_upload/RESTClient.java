@@ -5,6 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,6 +20,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 
 
 public class RESTClient {
@@ -37,6 +39,13 @@ public class RESTClient {
 		String user = args[2];
 		String password = args[3];
 		String jsonFilePath = args[4];
+		
+		//remove trailing slash
+		hubServer = hubServer.replaceAll("/$", "");
+		
+		String bomUrlFilePath = jsonFilePath.replaceAll(".json$", ".url");
+		
+		
 		
 		
 		String url =  String.format("%s/j_spring_security_check", hubServer);
@@ -68,6 +77,16 @@ public class RESTClient {
 		}
 		System.out.println(response.getStatusLine().getReasonPhrase());
 		System.out.println(response.getStatusLine().getStatusCode());
+		String responseBody = EntityUtils.toString(response.getEntity());
+		
+		responseBody = responseBody.replaceAll("\"", "");
+		
+		String bomUrl = String.format("%s/#versions/id:%s/view:bom", hubServer, responseBody );
+		System.out.println(responseBody);
+		System.out.println(bomUrl);
+		
+		Files.write(Paths.get(bomUrlFilePath), bomUrl.getBytes(), StandardOpenOption.CREATE);
+		
 		response.close();
 		
 		
