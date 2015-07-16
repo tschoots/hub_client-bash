@@ -21,6 +21,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 
 public class RESTClient {
@@ -44,6 +46,7 @@ public class RESTClient {
 		hubServer = hubServer.replaceAll("/$", "");
 		
 		String bomUrlFilePath = jsonFilePath.replaceAll(".json$", ".url");
+		String htmlUrlFilePath = jsonFilePath.replaceAll(".json$", ".html");
 		
 		
 		
@@ -56,6 +59,11 @@ public class RESTClient {
 		byte[] encoded = Files.readAllBytes(Paths.get(jsonFilePath));
 		String jsonString = new String(encoded, StandardCharsets.UTF_8);
 		System.out.println(jsonString);
+		
+		//get the number of components
+		JSONObject jsonObj = new JSONObject(jsonString);
+		JSONArray jsonComps = jsonObj.getJSONArray("ossComponentsToMatch");
+		int numberOfComponents = jsonComps.length();
 		
 		
 		// http://eng-hub-docker-01.blackducksoftware.com:80/api/v1/rpm-bom
@@ -87,6 +95,36 @@ public class RESTClient {
 		
 		Files.write(Paths.get(bomUrlFilePath), bomUrl.getBytes(), StandardOpenOption.CREATE);
 		
+		
+				
+		
+		String htmlTestPage = String.format("<!DOCTYPE html>" 
+								+ "<html>"
+								+ "<head>"
+								+ "<style>"
+								+ "*{margin:0;padding:0}"
+								+ "html, body {height:100%%;width:100%%;overflow:hidden}"
+								+ "table {height:100%%;width:100%%;table-layout:static;border-collapse:collapse}"
+								+ "iframe {height:100%%;width:100%%}"
+								
+								+ ".header {border-bottom:1px solid #000}"
+								+ ".content {height:100%%}"
+								+ "</style>"
+								+ "<title>Page Title</title>"
+								+ "</head>"
+								+ "<body style=\"margin:0; width:100%%; height:100%%\">"
+								
+								+ "<h1>Components found by scanner</h1>"
+								+ "<p>number of components : %d</p>"
+								
+								+ "<table>"
+								+ "<tr><td class=\"header\"><div><h1>Header</h1></div></td></tr>"
+								  + "<tr><td class=\"content\">"
+								+ "<iframe id=\"foo\" name=\"foo\" height=\"100%%\" width=\"100%%\" frameborder=\"0\" src=\"%s\"></iframe>"
+								+ "</table>"
+								+ "</body>"
+								+ "</html>", numberOfComponents, bomUrl) ;
+		Files.write(Paths.get(htmlUrlFilePath), htmlTestPage.getBytes(), StandardOpenOption.CREATE);
 		response.close();
 		
 		
