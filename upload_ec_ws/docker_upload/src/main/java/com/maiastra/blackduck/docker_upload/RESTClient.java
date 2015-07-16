@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -47,6 +48,8 @@ public class RESTClient {
 		
 		String bomUrlFilePath = jsonFilePath.replaceAll(".json$", ".url");
 		String htmlUrlFilePath = jsonFilePath.replaceAll(".json$", ".html");
+		String htmlUrlCompFilePath = jsonFilePath.replaceAll(".json$", "_comp.html");
+		
 		
 		
 		
@@ -64,6 +67,8 @@ public class RESTClient {
 		JSONObject jsonObj = new JSONObject(jsonString);
 		JSONArray jsonComps = jsonObj.getJSONArray("ossComponentsToMatch");
 		int numberOfComponents = jsonComps.length();
+		
+		String htmlComponentPage = getHtmlPage(jsonComps, numberOfComponents);
 		
 		
 		// http://eng-hub-docker-01.blackducksoftware.com:80/api/v1/rpm-bom
@@ -125,6 +130,7 @@ public class RESTClient {
 								+ "</body>"
 								+ "</html>", numberOfComponents, bomUrl) ;
 		Files.write(Paths.get(htmlUrlFilePath), htmlTestPage.getBytes(), StandardOpenOption.CREATE);
+		Files.write(Paths.get(htmlUrlCompFilePath), htmlComponentPage.getBytes(), StandardOpenOption.CREATE);
 		response.close();
 		
 		
@@ -152,6 +158,38 @@ public class RESTClient {
 		System.out.println(response.getStatusLine().getReasonPhrase());
 		System.out.println(response.getStatusLine().getStatusCode());
 		response.close();
+	}
+	
+	private static String getHtmlPage(JSONArray jsonComps, int numberOfComponents) {
+		String htmlTestPage = "<!DOCTYPE html>" 
+				+ "<html>"
+				+ "<head>"
+				+ "<body>"
+				+ "<style>"
+				+ "white-space: pre-line;"
+				+ "</style>";
+		
+		
+		
+		ArrayList<String> componentList = new ArrayList<String>();
+		for(int i=0; i< numberOfComponents; i++){
+			JSONObject obj = jsonComps.getJSONObject(i);
+			System.out.println(String.format("name : %s   , versioAn : %s", obj.get("name") , obj.get("version")));
+			String test = String.format("%-35s : %-15s", obj.get("name"), obj.get("version"));
+			//componentList.add((String) obj.get("name"));
+			componentList.add(test);
+		}
+		
+		Collections.sort(componentList);
+		
+		for(String com : componentList){
+			System.out.println(com);
+			htmlTestPage+="<br>" + com;
+		}
+		
+		htmlTestPage += "</body>"
+				+ "</html>";
+		return htmlTestPage;
 	}
 
 }
