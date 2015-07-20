@@ -14,8 +14,11 @@ echo $memory
 
 # check if the boot2docker-vm is running.
 status=$(boot2docker status)
+echo "status docker " $status
 if [ "$status" == "poweroff" ]; then
    echo "start up boot2docker"
+   $(boot2docker up)
+elif [ "$status" == "aborted" ];then
    $(boot2docker up)
 fi
 
@@ -30,7 +33,7 @@ echo $output
 
 #now upload the json file
 # To do : parameterize the server , port , user , password
-java -jar postJSON.jar http://hub-docker.blackducksoftware.com 80 docker docker ./$a.json
+java -jar postJSON.jar https://hub-docker.blackducksoftware.com 443 docker docker ./$a.json
 
 
 #open the browser to view the report

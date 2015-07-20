@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+//import java.nio.file.StandardOpenOption;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -98,7 +98,9 @@ public class RESTClient {
 		System.out.println(responseBody);
 		System.out.println(bomUrl);
 		
-		Files.write(Paths.get(bomUrlFilePath), bomUrl.getBytes(), StandardOpenOption.CREATE);
+		//Files.write(Paths.get(bomUrlFilePath), bomUrl.getBytes(), StandardOpenOption.CREATE);
+		// don't use option default behaviour CREATE, TRUNCATE_EXISTING, WRITE
+		Files.write(Paths.get(bomUrlFilePath), bomUrl.getBytes());
 		
 		
 				
@@ -129,8 +131,8 @@ public class RESTClient {
 								+ "</table>"
 								+ "</body>"
 								+ "</html>", numberOfComponents, bomUrl) ;
-		Files.write(Paths.get(htmlUrlFilePath), htmlTestPage.getBytes(), StandardOpenOption.CREATE);
-		Files.write(Paths.get(htmlUrlCompFilePath), htmlComponentPage.getBytes(), StandardOpenOption.CREATE);
+		Files.write(Paths.get(htmlUrlFilePath), htmlTestPage.getBytes()); //, StandardOpenOption.CREATE);
+		Files.write(Paths.get(htmlUrlCompFilePath), htmlComponentPage.getBytes()); //, StandardOpenOption.CREATE);
 		response.close();
 		
 		

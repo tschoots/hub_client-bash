@@ -566,3 +566,38 @@
 2015-07-16 19:58:37,705 [Worker-151] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2015-07-16 20:39:57,897 [Stop Help Server] INFO  o.e.jetty.server.ServerConnector - Stopped ServerConnector@5be9e657{HTTP/1.1}{127.0.0.1:0}
 2015-07-16 20:39:57,906 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@7100ffce{/help,null,UNAVAILABLE}
+2015-07-20 21:14:46,864 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:14:46,880 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:14:46,887 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:14:46,888 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:14:47,681 [Worker-9] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.maiastra:docker_upload:0.0.1-SNAPSHOT @ /Users/tschoots/BDS_development/Docker/hub_client/upload_ec_ws/docker_upload/pom.xml.
+2015-07-20 21:14:47,798 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:14:47,799 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:14:47,801 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:14:47,801 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:14:49,317 [Worker-3] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.maiastra:docker_upload:0.0.1-SNAPSHOT @ /Users/tschoots/BDS_development/Docker/hub_client/upload_ec_ws/docker_upload/pom.xml.
+2015-07-20 21:14:49,377 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:14:49,389 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:14:49,390 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:14:49,391 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:20:23,508 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @351269ms
+2015-07-20 21:20:23,634 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.2.9.v20150224
+2015-07-20 21:20:23,680 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@37e8fd3f{/help,null,AVAILABLE}
+2015-07-20 21:20:23,687 [Start Help Server] INFO  o.e.jetty.server.ServerConnector - Started ServerConnector@7c4d0822{HTTP/1.1}{127.0.0.1:50437}
+2015-07-20 21:20:23,688 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @351449ms
+2015-07-20 21:46:10,421 [Worker-21] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:46:10,422 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:46:10,423 [Worker-21] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:46:10,424 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:47:55,303 [Worker-24] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:47:55,304 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:47:55,305 [Worker-24] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:47:55,305 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:48:40,613 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:48:40,614 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:48:40,615 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:48:40,615 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:49:13,748 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:49:13,749 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 21:49:13,750 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-20 21:49:13,750 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
