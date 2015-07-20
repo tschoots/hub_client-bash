@@ -30,7 +30,7 @@ echo $output
 
 #now upload the json file
 # To do : parameterize the server , port , user , password
-java -jar postJSON.jar http://eng-hub-docker-01.blackducksoftware.com 80 docker docker ./$a.json
+java -jar postJSON.jar http://hub-docker.blackducksoftware.com 80 docker docker ./$a.json
 
 
 #open the browser to view the report
