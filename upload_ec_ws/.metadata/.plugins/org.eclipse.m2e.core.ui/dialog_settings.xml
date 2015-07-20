@@ -2,11 +2,13 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.maiastra.bds.kb.mapping"/>
 			<item value="com.maiastra"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="docker_kb_map"/>
 			<item value="docker_upload"/>
 		</list>
 		<list key="projectNameTemplate">
