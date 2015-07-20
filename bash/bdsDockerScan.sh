@@ -43,15 +43,15 @@ if [ -f $urlFile ];then
   echo $html
   if [ -f /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome ];then
      open -a "Google Chrome" $comp 
-     open -a "Google Chrome" $html 
+     #open -a "Google Chrome" $html 
      open -a "Google Chrome" $url 
   elif [ -f /Applications/Firefox.app/Contents/MacOS/firefox ];then
      open -a Firefox $comp
-     open -a Firefox $html
+     #open -a Firefox $html
      open -a Firefox $url
   elif [ -f /Applications/Safari.app/Contents/MacOS/Safari ];then
      open -a safari $comp 
-     open -a safari $html 
+     #open -a safari $html 
      open -a safari $url 
   else
      echo "no browser found"
