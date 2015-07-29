@@ -33,7 +33,8 @@ echo $output
 
 #now upload the json file
 # To do : parameterize the server , port , user , password
-java -jar postJSON.jar https://hub-docker.blackducksoftware.com 443 docker docker ./$a.json
+#java -jar postJSON.jar https://hub-docker.blackducksoftware.com 443 docker docker ./$a.json
+java -jar postJSON.jar http://tons-mackbook-pro.local 8080 docker docker ./$a.json
 
 
 #open the browser to view the report
@@ -46,7 +47,7 @@ if [ -f $urlFile ];then
   echo $html
   if [ -f /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome ];then
      open -a "Google Chrome" $comp 
-     #open -a "Google Chrome" $html 
+     open -a "Google Chrome" $html 
      open -a "Google Chrome" $url 
   elif [ -f /Applications/Firefox.app/Contents/MacOS/firefox ];then
      open -a Firefox $comp

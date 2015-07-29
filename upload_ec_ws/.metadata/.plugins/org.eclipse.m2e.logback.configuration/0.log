@@ -601,3 +601,13 @@
 2015-07-20 21:49:13,749 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2015-07-20 21:49:13,750 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2015-07-20 21:49:13,750 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-20 22:37:05,192 [Stop Help Server] INFO  o.e.jetty.server.ServerConnector - Stopped ServerConnector@7c4d0822{HTTP/1.1}{127.0.0.1:0}
+2015-07-20 22:37:05,200 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@37e8fd3f{/help,null,UNAVAILABLE}
+2015-07-29 10:34:09,350 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-29 10:34:09,359 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/tschoots/BDS_development/Docker/hub_client/upload_ec_ws/docker_upload/src/main/resources
+2015-07-29 10:34:09,361 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-29 10:34:09,362 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/tschoots/BDS_development/Docker/hub_client/upload_ec_ws/docker_upload/src/test/resources
+2015-07-29 10:34:12,056 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-29 10:34:12,064 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-07-29 10:34:12,066 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-07-29 10:34:12,067 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
