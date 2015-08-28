@@ -8,6 +8,8 @@ if [ "$#" -ne 2  ]; then
    exit
 fi
 
+set -x
+
 # maybe check amount of ram , boot2docker info
 memory=$(boot2docker info | grep "Memory")
 echo $memory
@@ -28,13 +30,18 @@ eval $(boot2docker shellinit)
 
 # take out the / and replace for - in the json file name
 a=$(echo "$1_$2" | sed 's/\//-/g')
-output=$(docker run --privileged --rm -ti -v `pwd`:/tmp $1:$2 /tmp/get_packages.sh $1 $2  > /tmp/$a.json)
-echo $output
+$(docker run --privileged --rm -ti -v `pwd`:/tmp $1:$2 /tmp/get_packages.sh $1 $2)
+
+if [ ! -e ./$a.json ]; then
+  # json file not generated
+  exit 1
+fi
 
 #now upload the json file
 # To do : parameterize the server , port , user , password
 #java -jar postJSON.jar https://hub-docker.blackducksoftware.com 443 docker docker ./$a.json
-java -jar postJSON.jar http://tons-mackbook-pro.local 8080 docker docker ./$a.json
+#java -jar postJSON.jar http://tons-mackbook-pro.local 8080 docker docker ./$a.json
+java -jar postJSON.jar https://saleshub.blackducksoftware.com 443 tschoots blackduck ./$a.json
 
 
 #open the browser to view the report

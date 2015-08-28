@@ -29,6 +29,8 @@ rpm=$(command -v rpm)
 package_manager="no rpm or dpkg package manager"
 if [ "$os" = "slackware" ];then
    package_manager="pkgtool"
+elif [  "$os" = "alpine"  ];then
+   package_manager="apk"
 elif [  -z $dpkg  ];then
    package_manager="rpm"
 elif [ -z $rpm   ];then
