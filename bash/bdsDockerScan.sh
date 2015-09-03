@@ -39,9 +39,9 @@ fi
 
 #now upload the json file
 # To do : parameterize the server , port , user , password
-java -jar postJSON.jar https://hub-docker.blackducksoftware.com 443 sysadmin blackduck ./$a.json
+#java -jar postJSON.jar https://hub-docker.blackducksoftware.com 443 sysadmin blackduck ./$a.json
 #java -jar postJSON.jar http://tons-mackbook-pro.local:8080 8080 docker docker ./$a.json
-#java -jar postJSON.jar https://saleshub.blackducksoftware.com 443 tschoots blackduck ./$a.json
+java -jar postJSON.jar https://saleshub.blackducksoftware.com 443 tschoots blackduck ./$a.json
 
 
 #open the browser to view the report
